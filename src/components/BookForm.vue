@@ -1,19 +1,21 @@
 <template>
-  <form @submit.prevent="handleSubmit">
+  <form @submit.prevent="handleSubmit" class="book-form">
     <div class="form-group">
-      <label for="title">Título:</label>
-      <input type="text" id="title" v-model="form.title" required />
+      <label for="title">Título *</label>
+      <input type="text" id="title" v-model="form.title" required placeholder="Ej. Cien años de soledad" />
     </div>
     <div class="form-group">
-      <label for="author">Autor:</label>
-      <input type="text" id="author" v-model="form.author" required />
+      <label for="author">Autor *</label>
+      <input type="text" id="author" v-model="form.author" required placeholder="Ej. Gabriel García Márquez" />
     </div>
     <div class="form-group">
-      <label for="year">Año:</label>
-      <input type="number" id="year" v-model="form.year" required />
+      <label for="year">Año *</label>
+      <input type="number" id="year" v-model="form.year" required placeholder="Ej. 1967" />
     </div>
-    <button type="submit" class="btn-submit">{{ isEdit ? 'Actualizar' : 'Crear' }}</button>
-    <router-link to="/books" class="btn-cancel">Cancelar</router-link>
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">{{ isEdit ? 'Actualizar' : 'Crear' }}</button>
+      <router-link to="/books" class="btn btn-danger">Cancelar</router-link>
+    </div>
   </form>
 </template>
 
@@ -41,35 +43,16 @@ const handleSubmit = () => {
 </script>
 
 <style scoped>
-.form-group {
-  margin-bottom: 15px;
+.book-form {
+  margin-top: 1rem;
 }
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
-input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-.btn-submit, .btn-cancel {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-right: 10px;
-  text-decoration: none;
-  display: inline-block;
-}
-.btn-submit {
-  background-color: #4CAF50;
-  color: white;
-}
-.btn-cancel {
-  background-color: #f44336;
-  color: white;
+.form-actions .btn {
+  flex: 1;
+  text-align: center;
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="form-container">
     <h1>Editar Libro</h1>
-    <div v-if="isLoading">Cargando...</div>
-    <div v-else-if="error">{{ error }}</div>
+    <div v-if="isLoading" class="loading-card">⏳ Cargando...</div>
+    <div v-else-if="error" class="error-card">{{ error }}</div>
     <BookForm v-else :initialData="book" :isEdit="true" @submit="updateBook" />
   </div>
 </template>
@@ -47,3 +47,18 @@ onMounted(() => {
   fetchBook();
 });
 </script>
+
+<style scoped>
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+</style>

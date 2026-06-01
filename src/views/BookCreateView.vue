@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="form-container">
     <h1>Agregar Nuevo Libro</h1>
     <BookForm @submit="createBook" />
   </div>
@@ -21,3 +21,18 @@ const createBook = async (bookData) => {
   }
 };
 </script>
+
+<style scoped>
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+</style>
